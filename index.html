@@ -138,9 +138,21 @@
             const pirateShip = document.getElementById('pirate-ship');
 
             if (input === 'l') {
-                window.location.href = 'story_lena.html'; // Redirect to story_lena.html
+                message.textContent = '';
+                pirateShip.style.display = 'block';
+                // Start raining coins
+                rainCoins();
+                setTimeout(() => {
+                    window.location.href = 'story_lena.html'; // Redirect to story_lena.html
+                }, 5000);
             } else if (input === 'r') {
-                window.location.href = 'story_rori.html'; // Redirect to story_rori.html
+                message.textContent = '';
+                pirateShip.style.display = 'block';
+                // Start raining coins
+                rainCoins();
+                setTimeout(() => {
+                    window.location.href = 'story_rori.html'; // Redirect to story_rori.html
+                }, 5000);
             } else {
                 message.textContent = "Hmm… that doesn't seem quite right. Try again, adventurer!";
                 message.style.color = 'lightcoral';
