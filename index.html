@@ -7,11 +7,7 @@
     <title>Winter Treasure Hunt</title>
     <style>
         body {
-            background-image: url('mtcurry.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
+            background-color: black;
             font-family: 'Arial', sans-serif;
             color: #fff;
             margin: 0;
@@ -19,6 +15,17 @@
             min-height: 100vh;
             width: 100%;
             overflow: auto;
+            position: relative;
+        }
+        .background-skull {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            opacity: 0.3;
+            z-index: 1;
         }
         .container {
             background: rgba(0, 0, 0, 0.5);
@@ -103,6 +110,7 @@
     </style>
 </head>
 <body>
+    <img src="skull.svg" class="background-skull" alt="Skull">
     <div class="container" style="font-family: 'Pirata One', cursive; font-size: 125%;">
         <h1 style="text-align: center;">Welcome, Adventurers!</h1>
         <p>Message from Old Frank Goldsmith:</p>
