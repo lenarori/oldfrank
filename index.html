@@ -7,45 +7,54 @@
     <title>Winter Treasure Hunt</title>
     <style>
         body {
-            background-image: url('mtcurry.jpg'); /* Updated with actual image name */
-            background-attachment: fixed; /* Added for parallax effect */
+            background-image: url('mtcurry.jpg');
             background-size: cover;
+            background-position: center;
             font-family: 'Arial', sans-serif;
             color: #fff;
-            text-align: center;
-            padding: 50px;
-            overflow: hidden; /* Prevent scrollbars when coins animate */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
             margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
         }
         .container {
             background: rgba(0, 0, 0, 0.5);
             padding: 20px;
             border-radius: 10px;
-            display: inline-block;
-            max-width: 80%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 500px;
+            z-index: 5;
         }
         input[type="text"] {
             padding: 10px;
             border: none;
             border-radius: 5px;
-            width: 300px; /* Increased width */
-            font-size: 18px; /* Increased font size */
-            background: #f5f5dc; /* Parchment-style color */
+            width: 80%;
+            max-width: 300px;
+            font-size: 18px;
+            background: #f5f5dc;
+            display: block;
+            margin: 10px auto;
         }
         button {
-            padding: 15px 30px; /* Increased padding */
+            padding: 15px 30px;
             border: none;
             border-radius: 5px;
             background-color: #00f;
             color: #fff;
-            font-size: 18px; /* Increased font size */
+            font-size: 18px;
             cursor: pointer;
-            margin-top: 10px;
-            box-shadow: 0 0 10px #00f; /* Frosty glow effect */
+            margin: 10px auto;
+            box-shadow: 0 0 10px #00f;
+            width: 80%;
+            max-width: 300px;
+            position: relative;
+            display: block;
         }
         .message {
             margin-top: 20px;
@@ -53,12 +62,14 @@
         }
         .pirate-ship {
             display: none;
-            width: 76px; /* Increased width */
-            height: 100px; /* Increased height */
-            background-image: url('skull.svg'); /* Updated to use ship.png */
+            width: 76px;
+            height: 100px;
+            background-image: url('skull.svg');
             background-size: cover;
-            margin: auto;
+            margin: 20px auto 0;
             animation: spin 5s linear infinite;
+            position: relative;
+            z-index: 10;
         }
         @keyframes spin {
             from { transform: rotate(0deg); }
@@ -66,9 +77,10 @@
         }
         .coin {
             position: absolute;
+            pointer-events: none;
             width: 40px;
             height: 40px;
-            background-image: url('coin.png'); /* Use the provided coin image */
+            background-image: url('coin.png');
             background-size: contain;
             background-repeat: no-repeat;
             z-index: 100;
@@ -87,12 +99,12 @@
     </style>
 </head>
 <body>
-    <div class="container" style="font-family: 'Pirata One', cursive; font-size: 120%;">
-        <h1>Welcome, Adventurers!</h1>
+    <div class="container" style="font-family: 'Pirata One', cursive; font-size: 125%;">
+        <h1 style="text-align: center;">Welcome, Adventurers!</h1>
         <p>Message from Old Frank Goldsmith:</p>
-        <p>"Ahoy there, brave souls! Legend speaks of a hidden treasure in these mountains, guarded by winter's embrace.</p>
+        <p>"Ahoy there, brave souls! Legend speaks of a hidden treasure in these mountains.</p>
         <p>Speak the secret word, and the path shall reveal itself.</p>
-        <p>Choose wisely, for only the true adventurer will find what lies beyond the snow and ice!"</p>
+        <p>Choose wisely, for only the true adventurer will find what lies beyond!"</p>
         <input type="text" id="password" placeholder="Enter the secret word">
         <button onclick="checkPassword()">Unlock the Secret</button>
         <div id="message" class="message"></div>
