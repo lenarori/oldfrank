@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Winter Treasure Hunt</title>
@@ -136,15 +137,7 @@
             const message = document.getElementById('message');
             const pirateShip = document.getElementById('pirate-ship');
 
-            if (input === correctPassword) {
-                message.textContent = '';
-                pirateShip.style.display = 'block';
-                // Start raining coins
-                rainCoins();
-                setTimeout(() => {
-                    window.location.href = 'story.html'; // Redirect to the story page
-                }, 5000);
-            } else if (input === 'l') {
+            if (input === 'l') {
                 window.location.href = 'story_lena.html'; // Redirect to story_lena.html
             } else if (input === 'r') {
                 window.location.href = 'story_rori.html'; // Redirect to story_rori.html
