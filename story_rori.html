@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Call of the Compass</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow-x: hidden;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+        }
+
+        .background-first {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-image: url('mtcurry.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -2;
+            filter: brightness(0.8);
+        }
+
+        .background-second {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-image: url('mtcurry2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1;
+            opacity: 0;
+        }
+
+        .story-container {
+            position: relative;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 60px auto 30px;
+            max-width: 90%;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .story-content {
+            font-size: 18px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .mystical-images {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .mystical-images img {
+            width: 100px;
+            height: auto;
+            margin: 10px;
+            transition: transform 0.3s;
+        }
+
+        .mystical-images img:hover {
+            transform: scale(1.1);
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .next-button {
+            display: inline-block;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            padding: 15px 30px;
+            background: rgba(255, 215, 0, 0.7);
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .next-button:hover {
+            background: rgba(255, 215, 0, 0.9);
+            transform: scale(1.05);
+        }
+
+        .beacon-instructions {
+            text-align: left;
+            padding: 0 15px;
+        }
+
+        .beacon-instructions ul {
+            padding-left: 20px;
+        }
+
+        .beacon-instructions li {
+            margin-bottom: 10px;
+        }
+
+        .glowing-symbol {
+            font-size: 30px;
+            margin: 15px 0;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 767px) {
+            h1 {
+                font-size: 28px;
+                line-height: 1.3;
+            }
+
+            .section-title {
+                font-size: 22px;
+            }
+
+            .story-content {
+                font-size: 18px;
+                line-height: 1.5;
+                padding: 0 5px;
+            }
+
+            .story-container {
+                padding: 15px;
+                margin-top: 40px;
+                max-width: 95%;
+            }
+
+            .mystical-images img {
+                width: 120px;
+            }
+
+            br {
+                display: block;
+                margin: 10px 0;
+                content: "";
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Pirata One', cursive;
+        }
+
+        .story-content {
+            font-size: 22px;
+            line-height: 1.6;
+            margin-top: 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        /* Additional mobile typography adjustments */
+        @media (max-width: 767px) {
+            .story-content {
+                font-size: 20px;
+                letter-spacing: 0.5px;
+            }
+
+            p {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-first"></div>
+    <div class="background-second"></div>
+    <div class="story-container">
+        <h1>🧭 The Call of the Compass 🧭</h1>
+
+        <h2 class="section-title">✨ The Adventure Begins ✨</h2>
+        <p class="story-content">
+            The words seem to shimmer on the screen, as if whispered by the wind, curling through the frost-kissed air…
+            <br><br>
+            <em>"Rori, my fearless explorer… I knew I could count on you."</em>
+            <br><br>
+            It's been a long time since I last sent word, but I've been watching from afar. The old compass locket—your compass locket—has been stirring, whispering secrets buried deep in the snow. And now, it is calling you.
+            <br><br>
+            Rori, you have always had the heart of a true adventurer. I've seen it in the way you charge into the unknown, never backing down from a challenge. And let me tell you, I've heard stories. Just last week, I was in a quiet old sailor's port, sharing a meal with some weathered old sea captains, and do you know what they told me?
+            <br><br>
+            <strong>"That Rori—aye, she's been mesmerizing everyone with her Piano and her incredible soccer skills as well, making some great saves in goal!" ⚽️</strong>
+        </p>
+
+        <div class="mystical-images">
+            <img src="snowy-trail.png" alt="Trail through a snowy forest" style="width: 150px; box-shadow: 0 0 15px rgba(255, 255, 255, 0.7); border: 2px solid gold;">
+            <img src="mountains.png" alt="Majestic snowy peaks under a wintery sky" style="width: 150px; box-shadow: 0 0 15px rgba(255, 255, 255, 0.7); border: 2px solid gold;">
+        </div>
+
+        <h2 class="section-title">💎 The Treasure Awaits 💎</h2>
+        <p class="story-content">
+            I told them I already knew that, of course. But what they don't know is that you are about to embark on a treasure hunt unlike any before.
+            <br><br>
+            Now, I know something else, too. Even the bravest adventurers don't travel alone.
+            You've got Lena by your side, and that's a good thing—because every explorer needs a sharp-eyed navigator,
+            someone to help read the clues, spot the signs, and stay the course.
+            She will be a key part of this journey, just as you will.
+            But for now, Rori, this message is just for you.
+            <br><br>
+            Rori, treasure hunters from long ago left behind many clues, but the most important one is always the same:
+            location, location, location. The world is vast, and a true explorer must know exactly where to begin.
+            <br><br>
+            The numbers below are no ordinary numbers. They are coordinates, a secret code that only those who understand maps
+            and the lay of the land can decipher. They will lead you to the general area where the treasure is hidden—but that alone
+            will not be enough. You will still need the beacon to find the exact spot.
+            <br><br>
+            Take these coordinates, study them well, and when you're ready, set out on your journey.
+            <br><br>
+            🗺️ <strong>Coordinates:</strong> 50.1163° N, 122.9574° W <em>(Whistler Olympic Park, where legends say an ancient treasure
+            was buried beneath the snow)</em>
+            <br><br>
+            But remember, Rori—a true explorer does not rely on numbers alone. The land can be tricky, and paths may not always be clear.
+            That is why you will need something more than a map.
+            <br><br>
+            And that is where the beacon comes in…
+            <br><br>
+            The Magic Beacon – Your Guide to the Treasure
+            <div class="glowing-symbol">✨</div>
+
+            <p class="story-content">
+                <strong>The Magic Beacon 🔮</strong><br>
+                Rori, finding the right place is just the beginning. That's why I've left you a special beacon that holds ancient explorer wisdom.
+            </p>
+
+            <div class="beacon-instructions">
+                <h3>How the Beacon Works: 🧭</h3>
+                <ul>
+                    <li>🔆 <strong>Brighter glow</strong> = right direction</li>
+                    <li>🔅 <strong>Dimmer light</strong> = wrong path</li>
+                    <li>✨ <strong>Steady, strong glow</strong> = treasure is near</li>
+                </ul>
+            </div>
+
+            <p class="story-content">
+                Trust this light as your guide. The snow may deceive you, but stay focused and move with confidence.
+                This beacon was made specifically for you—a true adventurer.<br><br>
+                Take a deep breath. The journey begins. When the light calls—follow! The frozen lands of Whistler
+                hold many secrets, but with your instincts, you'll succeed. 🌟
+            </p>
+
+        <div class="mystical-images">
+            <img src="compass.png" alt="An old compass with a faint golden glow" style="width: 150px; box-shadow: 0 0 15px rgba(255, 255, 255, 0.7); border: 2px solid gold;">
+        </div>
+
+        <a href="#" class="next-button" onclick="showBlackScreen()">👉 Begin the Journey 🏔️</a>
+    </div>
+    <script>
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.pageYOffset;
+            const viewportHeight = window.innerHeight;
+            const backgroundSecond = document.querySelector('.background-second');
+
+            // Calculate opacity for smooth transition between images
+            const transitionPoint = viewportHeight * 0.8; // Start transition at 80% of first viewport
+            let secondOpacity = 0;
+
+            if (scrollPosition > transitionPoint) {
+                // Calculate opacity based on scroll position
+                secondOpacity = Math.min((scrollPosition - transitionPoint) / (viewportHeight * 0.2), 1);
+            }
+
+            backgroundSecond.style.opacity = secondOpacity;
+        });
+    </script>
+</body>
+</html>
+<script>
+    function showBlackScreen() {
+        const blackScreen = document.createElement('div');
+        blackScreen.style.position = 'fixed';
+        blackScreen.style.top = '0';
+        blackScreen.style.left = '0';
+        blackScreen.style.width = '100%';
+        blackScreen.style.height = '100%';
+        blackScreen.style.backgroundColor = 'black';
+        blackScreen.style.display = 'flex';
+        blackScreen.style.justifyContent = 'center';
+        blackScreen.style.alignItems = 'center';
+        blackScreen.style.zIndex = '1000';
+
+        const skullImage = document.createElement('img');
+        skullImage.src = 'skull.svg'; // Ensure this image path is correct
+        skullImage.style.width = '200px';
+        skullImage.style.animation = 'glow 1.5s infinite alternate';
+
+        // Add the missing CSS for the glow animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes glow {
+                from { filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.7)); }
+                to { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 1)); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        blackScreen.appendChild(skullImage);
+        document.body.appendChild(blackScreen);
+    }
+</script>

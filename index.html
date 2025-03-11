@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winter Treasure Hunt</title>
+    <style>
+        body {
+            background-image: url('mtcurry.jpg'); /* Updated with actual image name */
+            background-attachment: fixed; /* Added for parallax effect */
+            background-size: cover;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            text-align: center;
+            padding: 50px;
+            overflow: hidden; /* Prevent scrollbars when coins animate */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            max-width: 80%;
+        }
+        input[type="text"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 300px; /* Increased width */
+            font-size: 18px; /* Increased font size */
+            background: #f5f5dc; /* Parchment-style color */
+        }
+        button {
+            padding: 15px 30px; /* Increased padding */
+            border: none;
+            border-radius: 5px;
+            background-color: #00f;
+            color: #fff;
+            font-size: 18px; /* Increased font size */
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0 0 10px #00f; /* Frosty glow effect */
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .pirate-ship {
+            display: none;
+            width: 76px; /* Increased width */
+            height: 100px; /* Increased height */
+            background-image: url('skull.svg'); /* Updated to use ship.png */
+            background-size: cover;
+            margin: auto;
+            animation: spin 5s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .coin {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-image: url('coin.png'); /* Use the provided coin image */
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 100;
+            animation: fall linear;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0.7;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="font-family: 'Pirata One', cursive;">
+        <h1>Welcome, Adventurers!</h1>
+        <p>Message from Old Frank Goldsmith:</p>
+        <p>"Ahoy there, brave souls! Legend speaks of a hidden treasure in these mountains, guarded by winter's embrace.</p>
+        <p>Speak the secret word, and the path shall reveal itself.</p>
+        <p>Choose wisely, for only the true adventurer will find what lies beyond the snow and ice!"</p>
+        <input type="text" id="password" placeholder="Enter the secret word">
+        <button onclick="checkPassword()">Unlock the Secret</button>
+        <div id="message" class="message"></div>
+        <div id="pirate-ship" class="pirate-ship"></div>
+    </div>
+
+    <script>
+        const correctPassword = 's'; // Update this password as needed
+
+        function createCoin() {
+            const coin = document.createElement('div');
+            coin.className = 'coin';
+            // Random horizontal position
+            coin.style.left = Math.random() * window.innerWidth + 'px';
+            // Random animation duration between 2-6 seconds
+            const duration = 2 + Math.random() * 4;
+            coin.style.animationDuration = duration + 's';
+            document.body.appendChild(coin);
+
+            // Remove coin after animation completes
+            setTimeout(() => {
+                if (coin.parentNode) {
+                    coin.parentNode.removeChild(coin);
+                }
+            }, duration * 1000);
+        }
+
+        function rainCoins() {
+            // Create 50 coins at random intervals
+            let coinsCreated = 0;
+            const coinInterval = setInterval(() => {
+                createCoin();
+                coinsCreated++;
+                if (coinsCreated >= 50) {
+                    clearInterval(coinInterval);
+                }
+            }, 100);
+        }
+
+        function checkPassword() {
+            const input = document.getElementById('password').value;
+            const message = document.getElementById('message');
+            const pirateShip = document.getElementById('pirate-ship');
+
+            if (input === correctPassword) {
+                message.textContent = '';
+                pirateShip.style.display = 'block';
+                // Start raining coins
+                rainCoins();
+                setTimeout(() => {
+                    window.location.href = 'story.html'; // Redirect to the story page
+                }, 5000);
+            } else if (input === 'l') {
+                window.location.href = 'story_lena.html'; // Redirect to story_lena.html
+            } else if (input === 'r') {
+                window.location.href = 'story_rori.html'; // Redirect to story_rori.html
+            } else {
+                message.textContent = "Hmm… that doesn't seem quite right. Try again, adventurer!";
+                message.style.color = 'lightcoral';
+            }
+        }
+    </script>
+</body>
+</html>
