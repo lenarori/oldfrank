@@ -164,23 +164,32 @@
             if (input === 'oldfrank') {
                 message.textContent = '';
                 pirateShip.style.display = 'block';
-                // Start raining coins
-                rainCoins();
                 // Scroll to bottom
                 window.scrollTo(0, document.body.scrollHeight);
+                // Start raining coins after scrolling
+                setTimeout(() => {
+                    rainCoins();
+                }, 100);
                 setTimeout(() => {
                     window.location.href = 'story_lena.html'; // Redirect to story_lena.html
                 }, 5000);
             } else if (input === 'goldsmith') {
                 message.textContent = '';
                 pirateShip.style.display = 'block';
-                // Start raining coins
-                rainCoins();
                 // Scroll to bottom
                 window.scrollTo(0, document.body.scrollHeight);
+                // Start raining coins after scrolling
+                setTimeout(() => {
+                    rainCoins();
+                }, 100);
                 setTimeout(() => {
                     window.location.href = 'story_rori.html'; // Redirect to story_rori.html
                 }, 5000);
+            } else {
+                message.textContent = "Hmm… that doesn't seem quite right. Try again, adventurer!";
+                message.style.color = 'lightcoral';
+            }
+        }
             } else {
                 message.textContent = "Hmm… that doesn't seem quite right. Try again, adventurer!";
                 message.style.color = 'lightcoral';
