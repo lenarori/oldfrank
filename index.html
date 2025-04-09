@@ -177,11 +177,14 @@
                 message.textContent = '';
                 pirateShip.style.display = 'block';
                 // Scroll to bottom
-                window.scrollTo(0, document.body.scrollHeight - window.innerHeight);
+                
                 // Start raining coins after scrolling
                 setTimeout(() => {
                     rainCoins();
                 }, 100);
+
+                window.scrollTo(0, document.body.scrollHeight - window.innerHeight);
+                
                 setTimeout(() => {
                     window.location.href = 'story_rori.html'; // Redirect to story_rori.html
                 }, 5000);
