@@ -12,9 +12,9 @@
             color: #fff;
             margin: 0;
             padding: 0;
-            min-height: 200vh;
+            min-height: 100vh;
             width: 100%;
-            overflow: auto;
+            overflow-x: hidden;
             position: relative;
         }
         .background-skull {
@@ -37,9 +37,10 @@
             transform: translate(-50%, -50%);
             width: 80%;
             max-width: 500px;
-            max-height: 80vh;
+            max-height: 90vh;
             overflow-y: auto;
             z-index: 5;
+            transition: opacity 0.5s;
         }
         input[type="text"] {
             padding: 10px;
@@ -73,15 +74,19 @@
         }
         .pirate-ship {
             display: none;
-            width: 76px;
-            height: 100px;
-            background-image: url('skull.svg');
-            background-size: cover;
-            margin: 20px auto 0;
-            animation: spin 5s linear infinite;
-            position: relative;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             z-index: 10;
         }
+
+        .pirate-ship img {
+            width: 100px;
+            height: 100px;
+            animation: spin 5s linear infinite;
+        }
+
         @keyframes spin {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
@@ -103,8 +108,47 @@
                 opacity: 1;
             }
             100% {
-                transform: translateY(100vh) rotate(360deg);
+                transform: translateY(105vh) rotate(360deg);
                 opacity: 0.7;
+            }
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 767px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+                max-height: 85vh;
+            }
+
+            .container h1 {
+                font-size: 1.8em;
+            }
+
+            .container p {
+                font-size: 1em;
+                line-height: 1.4;
+            }
+
+            input[type="text"] {
+                width: 90%;
+                font-size: 16px;
+            }
+
+            button {
+                width: 90%;
+                font-size: 16px;
+                padding: 12px 20px;
+            }
+
+            .background-skull {
+                width: 200px;
+                height: 200px;
+            }
+
+            .pirate-ship img {
+                 width: 80px;
+                 height: 80px;
             }
         }
     </style>
@@ -120,7 +164,9 @@
         <input type="text" id="password" placeholder="Enter the secret word">
         <button onclick="checkPassword()">Unlock the Secret</button>
         <div id="message" class="message"></div>
-        <div id="pirate-ship" class="pirate-ship"></div>
+    </div>
+    <div id="pirate-ship" class="pirate-ship">
+        <img src="skull.svg" alt="Spinning Skull">
     </div>
 
     <script>
@@ -132,7 +178,7 @@
             // Random horizontal position
             coin.style.left = Math.random() * window.innerWidth + 'px';
             // Random animation duration between 2-6 seconds
-            const duration = 5
+            const duration = Math.random() * 4 + 2; // Random duration between 2 and 6 seconds
             coin.style.animationDuration = duration + 's';
             document.body.appendChild(coin);
 
@@ -161,16 +207,25 @@
             const input = document.getElementById('password').value;
             const message = document.getElementById('message');
             const pirateShip = document.getElementById('pirate-ship');
+            const container = document.querySelector('.container');
+
+            console.log('Pirate ship element:', pirateShip);
+            console.log('Pirate ship display:', pirateShip.style.display);
+            console.log('Pirate ship opacity:', pirateShip.style.opacity);
 
             if (input === 'oldfrank') {
                 message.textContent = '';
+                // Show the pirate ship first
                 pirateShip.style.display = 'block';
-                // Force scroll to bottom with smooth behavior
-                window.scrollTo({
-                    top: document.body.scrollHeight,
-                    behavior: 'smooth'
-                });
-                // Start raining coins after scrolling
+                pirateShip.style.opacity = '1';
+                // Hide the container with a fade
+                container.style.opacity = '0';
+                // Ensure container is removed from layout after fade
+                setTimeout(() => {
+                   if (container) container.style.display = 'none';
+                }, 500);
+
+                // Start raining coins
                 setTimeout(() => {
                     rainCoins();
                 }, 100);
@@ -179,13 +234,17 @@
                 }, 5000);
             } else if (input === 'goldsmith') {
                 message.textContent = '';
+                // Show the pirate ship first
                 pirateShip.style.display = 'block';
-                // Force scroll to bottom with smooth behavior
-                window.scrollTo({
-                    top: document.body.scrollHeight,
-                    behavior: 'smooth'
-                });
-                // Start raining coins after scrolling
+                pirateShip.style.opacity = '1';
+                // Hide the container with a fade
+                container.style.opacity = '0';
+                 // Ensure container is removed from layout after fade
+                setTimeout(() => {
+                   if (container) container.style.display = 'none';
+                }, 500);
+
+                // Start raining coins
                 setTimeout(() => {
                     rainCoins();
                 }, 100);
