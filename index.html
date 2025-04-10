@@ -211,12 +211,10 @@
             const pirateShip = document.getElementById('pirate-ship');
             const container = document.querySelector('.container');
 
-            console.log('Processed input:', input); // Log processed input for debugging
-            console.log('Pirate ship element:', pirateShip);
-            console.log('Pirate ship display:', pirateShip.style.display);
-            console.log('Pirate ship opacity:', pirateShip.style.opacity);
+            if (input === 'oldfrank' || input === 'goldsmith') { // Combine checks since logic is the same
+                const startTime = Date.now(); // Record start time
+                console.log(`Password correct at: ${startTime}`);
 
-            if (input === 'oldfrank') {
                 message.textContent = '';
                 // Show the pirate ship first
                 pirateShip.style.display = 'block';
@@ -230,30 +228,21 @@
 
                 // Start raining coins
                 setTimeout(() => {
+                    console.log(`Starting coin rain at: ${Date.now()} (Elapsed: ${Date.now() - startTime}ms)`);
                     rainCoins();
                 }, 100);
-                setTimeout(() => {
-                    window.location.href = 'story_lena.html';
-                }, 7500);
-            } else if (input === 'goldsmith') {
-                message.textContent = '';
-                // Show the pirate ship first
-                pirateShip.style.display = 'block';
-                pirateShip.style.opacity = '1';
-                // Hide the container with a fade
-                container.style.opacity = '0';
-                 // Ensure container is removed from layout after fade
-                setTimeout(() => {
-                   if (container) container.style.display = 'none';
-                }, 500);
 
-                // Start raining coins
+                // Set redirection timeout
+                const redirectUrl = (input === 'oldfrank') ? 'story_lena.html' : 'story_rori.html';
+                const redirectDelay = 7500;
+
                 setTimeout(() => {
-                    rainCoins();
-                }, 100);
-                setTimeout(() => {
-                    window.location.href = 'story_rori.html';
-                }, 7500);
+                    const endTime = Date.now(); // Record end time
+                    console.log(`Redirecting to ${redirectUrl} at: ${endTime}`);
+                    console.log(`Total duration: ${endTime - startTime}ms (Target: ${redirectDelay}ms)`);
+                    window.location.href = redirectUrl;
+                }, redirectDelay);
+
             } else {
                 message.textContent = "Hmm… that doesn't seem quite right. Try again, adventurer!";
                 message.style.color = 'lightcoral';
