@@ -204,11 +204,14 @@
         }
 
         function checkPassword() {
-            const input = document.getElementById('password').value;
+            const rawInput = document.getElementById('password').value;
+            // Trim whitespace and convert to lowercase
+            const input = rawInput.trim().toLowerCase();
             const message = document.getElementById('message');
             const pirateShip = document.getElementById('pirate-ship');
             const container = document.querySelector('.container');
 
+            console.log('Processed input:', input); // Log processed input for debugging
             console.log('Pirate ship element:', pirateShip);
             console.log('Pirate ship display:', pirateShip.style.display);
             console.log('Pirate ship opacity:', pirateShip.style.opacity);
