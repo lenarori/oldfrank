@@ -132,7 +132,7 @@
             // Random horizontal position
             coin.style.left = Math.random() * window.innerWidth + 'px';
             // Random animation duration between 2-6 seconds
-            const duration = 2 + Math.random() * 4;
+            const duration = 5
             coin.style.animationDuration = duration + 's';
             document.body.appendChild(coin);
 
@@ -147,6 +147,7 @@
         function rainCoins() {
             // Create 50 coins at random intervals
             let coinsCreated = 0;
+            
             const coinInterval = setInterval(() => {
                 createCoin();
                 coinsCreated++;
@@ -164,7 +165,7 @@
             if (input === 'oldfrank') {
                 message.textContent = '';
                 pirateShip.style.display = 'block';
-                // Scroll to bottom
+                // Scroll to bottom immediately after showing pirate ship
                 window.scrollTo(0, document.body.scrollHeight);
                 // Start raining coins after scrolling
                 setTimeout(() => {
@@ -176,15 +177,12 @@
             } else if (input === 'goldsmith') {
                 message.textContent = '';
                 pirateShip.style.display = 'block';
-                // Scroll to bottom
-                
+                // Scroll to bottom immediately after showing pirate ship
+                window.scrollTo(0, document.body.scrollHeight);
                 // Start raining coins after scrolling
                 setTimeout(() => {
                     rainCoins();
                 }, 100);
-
-                window.scrollTo(0, document.body.scrollHeight - window.innerHeight);
-                
                 setTimeout(() => {
                     window.location.href = 'story_rori.html'; // Redirect to story_rori.html
                 }, 5000);
